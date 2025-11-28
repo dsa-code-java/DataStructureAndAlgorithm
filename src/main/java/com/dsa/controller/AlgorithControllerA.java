@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dsa.constant.DsaAlgoConstants;
 import com.dsa.dto.CommonResponse;
 import com.dsa.service.AlgorithmServiceA;
-import com.dsa.service.DataStructureServiceA;
 
 @RestController
 @RequestMapping("/al-v")
@@ -86,7 +85,7 @@ public class AlgorithControllerA {
 		logger.info("exit from bubbleSort");
 		return commonResponse;
 	}
-	
+
 	@GetMapping("/selection-sort")
 	public CommonResponse selectionSort() {
 		logger.info("entry in selectionSort");
@@ -101,5 +100,49 @@ public class AlgorithControllerA {
 		logger.info("exit from selectionSort");
 		return commonResponse;
 	}
+
+	@GetMapping("/insertion-sort")
+	public CommonResponse insertionSort() {
+		logger.info("entry in insertionSort");
+
+		CommonResponse commonResponse = null;
+		try {
+			commonResponse = new CommonResponse(HttpStatus.OK.value(), DsaAlgoConstants.SUCCESS, algorithmServiceA.insertionSort());
+		} catch (Exception e) {
+			e.printStackTrace();
+			commonResponse = new CommonResponse(HttpStatus.OK.value(), DsaAlgoConstants.SUCCESS, e.getMessage());
+		}
+		logger.info("exit from insertionSort");
+		return commonResponse;
+	}
 	
+	@GetMapping("/merge-sort")
+	public CommonResponse mergeSort() {
+		logger.info("entry in mergeSort");
+
+		CommonResponse commonResponse = null;
+		try {
+			commonResponse = new CommonResponse(HttpStatus.OK.value(), DsaAlgoConstants.SUCCESS, algorithmServiceA.mergeSort());
+		} catch (Exception e) {
+			e.printStackTrace();
+			commonResponse = new CommonResponse(HttpStatus.OK.value(), DsaAlgoConstants.SUCCESS, e.getMessage());
+		}
+		logger.info("exit from mergeSort");
+		return commonResponse;
+	}
+	
+	@GetMapping("/quick-sort")
+	public CommonResponse quickSort() {
+		logger.info("entry in quickSort");
+
+		CommonResponse commonResponse = null;
+		try {
+			commonResponse = new CommonResponse(HttpStatus.OK.value(), DsaAlgoConstants.SUCCESS, algorithmServiceA.quickSort());
+		} catch (Exception e) {
+			e.printStackTrace();
+			commonResponse = new CommonResponse(HttpStatus.OK.value(), DsaAlgoConstants.SUCCESS, e.getMessage());
+		}
+		logger.info("exit from quickSort");
+		return commonResponse;
+	}
 }

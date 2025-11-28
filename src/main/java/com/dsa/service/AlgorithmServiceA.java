@@ -11,4 +11,10 @@ public interface AlgorithmServiceA {
 	String bubbleSort() throws Exception;
 	
 	String selectionSort() throws Exception;
+	
+	String insertionSort() throws Exception;
+
+	String mergeSort() throws Exception;
+	
+	String quickSort() throws Exception;
 }
