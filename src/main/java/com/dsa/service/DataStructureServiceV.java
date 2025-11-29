@@ -12,4 +12,6 @@ public interface DataStructureServiceV {
 
 	public int[] quickSort(int[] arr) throws Exception;
 
+	public int binarySearch(int[] arr,int searchNum) throws Exception;
+
 }

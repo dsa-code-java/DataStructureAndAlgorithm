@@ -9,8 +9,8 @@ public class DataStructureServiceImplV implements DataStructureServiceV {
 
 	@Override
 	public String ping() throws Exception {
-		// int[] arr = { 1,2,7,3,8,4};
-		// quickSort(arr);
+		int[] arr = {1,2,3,4,7,8};
+		// System.out.println(binarySearch(arr,3));
 		// for(int i=0;i<arr.length;i++)
 		// {
 		// 	System.out.println(arr[i]);
@@ -130,6 +130,28 @@ public class DataStructureServiceImplV implements DataStructureServiceV {
 			quickSortRecursion(arr, low, p - 1);
 			quickSortRecursion(arr, p+1,high);
 		
+	}
+
+	@Override
+	public int binarySearch(int[] arr,int searchNum) throws Exception{
+		int left=0;
+		int right = arr.length-1;
+		
+		while(left<=right)
+		{   int mid = left+(right-left)/2;
+			
+			if(arr[mid] == searchNum)
+			{	
+				return mid;
+			}
+			if(arr[mid] < searchNum)
+			{
+				left = mid+1;
+			}
+			else
+				right = mid-1;
+		}
+		return -1;
 	}
 
 }
